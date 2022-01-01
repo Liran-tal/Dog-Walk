@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useContext} from "react";
 import Api from "../API/Mock.api";
-
+import Card from "../components/card/card";
 
 export default function Home(props) {
 
@@ -13,10 +13,12 @@ export default function Home(props) {
 	}, []);
 
 	const displayRandomUsers = () => {
-		for (let i = 0; i < 3; ++i) {
-			let random = Math.floor(Math.random() * .length);
-
+		const res = [];
+		for (let i = 0; i < 4; ++i) {
+			let random = Math.floor(Math.random() * props.data.length);
+			res.push(<Card key={props.data[random].id} user={props.data[random]} />);
 		}
+		return res;
 	}
 
 	return (
@@ -25,14 +27,15 @@ export default function Home(props) {
 }
 
 
-{
-	name: "לירן",
-	avatar: "$image.avatar",
-	dogsNum: (Math.floor(Math.random() * 10) + 1),
-	rank: (Math.floor(Math.random() * 4) + 1),
-	city: "$address.cityName",
-	frreeText: "$lorem.paragraph",
-	contact: {
-		phone: "$phone.phoneNumber",
-	},
-}
+// {
+// 	"name": "לירן",
+// 	"age": 
+// 	"avatar": "$image.avatar",
+// 	"dogsNum": "(Math.floor(Math.random() * 10) + 1)",
+// 	"rank": "(Math.floor(Math.random() * 4) + 1)",
+// 	"city": "$address.cityName",
+// 	"freeText": "$lorem.paragraph",
+// 	"contact": {
+// 		"phone": "$phone.phoneNumber",
+// 	},
+// }

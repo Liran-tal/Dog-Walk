@@ -1,19 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../button/button";
+import { FaPaw } from "react-icons/fa"
 
-export default function Card({data, onItemDelete, onItemEdit}) {
+const ranks = [
+	<div><FaPaw /></div>, 
+	<div><FaPaw /><FaPaw /></div>, 
+	<div><FaPaw /><FaPaw /><FaPaw /></div>, 
+	<div><FaPaw /><FaPaw /><FaPaw /><FaPaw /></div>, 
+]
+
+export default function Card({user}) {
 	return (
 		<div className="ui card">
 			<div className="image">
-				<img src={data.avatar} alt={data.model}/>
+				<img src={user.avatar} alt={user.name}/>
 			</div>
 			<div className="content">
 				<div className="header">
-					Model: {data.model}
+					שם: {user.model}
+				</div>
+				<div className="header">
+					עיר: {user.location}
 				</div>
 				<div className="description">
-					In Stock: {data.inStock}
+					מספר כלבים מקסימלי בטיול: {user.dogsNum}
 				</div>
 			</div>
 			<div>
@@ -22,16 +33,16 @@ export default function Card({data, onItemDelete, onItemEdit}) {
 					className={"ui button"}
 					onClick={onItemEdit}
 					value="edit"
-					id={data.id}
+					id={user.id}
 				>
 					Edit
 				</Link>
 				<Button
-					text="Delete"
-					value="delete"
-					id={data.id}
+					text="הוסף למועדפים"
+					value="favorites"
+					id={user.id}
 					style={{}}
-					onClick={onItemDelete}
+					onClick={onAddFavorite}
 				/>
 			</div>
 		</div>
