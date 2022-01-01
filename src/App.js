@@ -4,8 +4,32 @@ import { UserContext } from './components/UserContext/UserContext.js';
 
 import PageNotFound from "./pages/NotFound.page.jsx";
 import './App.css';
+import Home from './pages/home.page.jsx';
 
 function App() {
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+		async function getUsersData() {
+			try {
+				const data = Api.getData();
+				if (data) {
+					setData(data);
+				}
+				else {
+
+        }
+			} 
+      catch (error) {
+				
+			}
+
+		} 
+
+		getUsersData();
+	}, []);
+
   return (
     <div className="App">
       בוקר טוב עולם   
@@ -14,7 +38,8 @@ function App() {
       <UserContext.Provider>
         <Routes>
           <Route 
-            
+            path="/"
+            element={<Home data={data} />}
           />
           <Route 
           
