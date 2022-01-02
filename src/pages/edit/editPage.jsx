@@ -1,55 +1,47 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Api from "../../API/Mock.api";
 import ItemEditor from "../../components/itemEditor/itemEditor";
+import { UserContext } from "../../components/UserContext/UserContext";
 
 
 export default function EditPage (props) {
 
-	defaultState = () => {
+	const defaultObject = () => {
 		return (
 			{
-				item: {
-					model: "",
-					inStock: "",
-					avatar: "",
-				},
-				isEdit: false,
+				name: "",
+				avatar: "",
+				dogsNum: "",
+				age: "",
+				location: "",
+				rank: 0,
+				phone: "",
+				id: "",
 			}
 		)
-	}
+	};
 	
-	state = this.defaultState();
+	const [walkerObject, setWalkerObject] = useState(defaultObject);
+	const [isEdit, setIsEdit] = useState(props.isEdit);
+	const {user, setUser} = useContext(UserContext);
 
-	componentDidMount = async () => {
-		if (!this.props.id) {
-			return;
+	useEffect (() => {
+		if (user && isEdit) {	
+			setWalkerObject(user);
 		}
-		
-		try {
-			const {data} = await Api.getData(this.props.id);
-			this.setState({item: data, isEdit: true});
-		} 
-		catch (error) {
-			console.error(error);
-		}
-	}
+	}, []);
 
-	onChange = ({target}) => {
-		this.setState((prevState) => ({
-			...prevState,
-			item: {
-				...prevState.item,
-				[target.name]: target.value,
-			}
+	function onChange ({target}) {
+		setWalkerObject((walkerObject) => ({
+			...walkerObject,
+			[target.name]: target.value,
 		}))
-	}
+	};
 
-	onSubmit = async (event) => {
-		event.preventDefault();
+	async function onSubmit (event) {
 		if (event.target.value === "add") {
 			try {
-				await Api.addItem(this.state.item);	
-				this.setState(this.defaultState());
+				await Api.addItem(walkerObject);
 				return ;
 			} 
 			catch (error) {
@@ -58,23 +50,21 @@ export default function EditPage (props) {
 		}
 
 		try {
-			await Api.editItem(this.props.id, this.state.item);	
-			this.setState(this.defaultState());
+			await Api.editItem(user.id, walkerObject);	
+			setUser(walkerObject);
 			return ;
 		} 
 		catch (error) {
 			console.error(error);	
 		}
-	}
+	};
 
 	return(
 		<ItemEditor 
-			item={this.state.item}
-			onChange={this.onChange}
-			onSubmit={this.onSubmit}
-			getChangedItemId={this.props.getChangedItemId}
-			isEdit={this.state.isEdit}
+			item={walkerObject}
+			onChange={onChange}
+			onSubmit={onSubmit}
+			isEdit={isEdit}
 		/>
-		// <>Edit Page</>
-	)
+	);
 }

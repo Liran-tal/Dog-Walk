@@ -76,7 +76,7 @@ export default function itemEditor(props) {
 							type="text" 
 							name="avatar"
 							defaultValue={props.item.avatar} 
-							placeholder="כלבים שמחים בטיול"
+							placeholder="jpug.כלבים שמחים בטיול"
 							onChange={props.onChange}
 						/>
 					</div>
@@ -85,7 +85,6 @@ export default function itemEditor(props) {
 			
 			<button 
 				className="ui button" 
-				onClick={props.getChangedItemId}
 				onClick={props.onSubmit}
 				value={props.isEdit ? "edit" : "add"}
 			>

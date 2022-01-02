@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import EditPage from "../edit/editPage";
 import Api from "../../API/Mock.api";
 import { UserContext } from "../../components/UserContext/UserContext";
 
@@ -7,6 +8,7 @@ import { UserContext } from "../../components/UserContext/UserContext";
 export default function Login(props) {
 	const [userName, setUserName] = useState("");
 	const [userPassword, setUserPassword] = useState("");
+	const [newUser, setNewUser] = useState(false);
 	const {user, setUser} = useContext(UserContext)
 
 	function loginInputHandler({target}){
@@ -59,10 +61,15 @@ export default function Login(props) {
 			</div>
 			<div>
 				<h2>
-					לא משתמש? הירשם!
+					לא משתמש?
 				</h2>
-
+				<button
+					onClick={() => setNewUser(true)}
+				>
+					הירשם!
+				</button>
 			</div>
+			{newUser && <EditPage isEdit={false} />}
 		</div>
 	)
 }

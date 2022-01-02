@@ -17,6 +17,7 @@ export default class Api {
 			return data;
 			
 		} catch (error) {
+			console.error(error);
 			return error
 		}
 		// const UsersDataContext = useContext(data);
