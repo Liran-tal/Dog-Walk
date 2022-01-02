@@ -6,6 +6,8 @@ import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import { AiOutlinePhone } from "react-icons/ai";
+import { AiOutlineLike } from "react-icons/ai";
+import { AiOutlineDislike } from "react-icons/ai";
 import { RiMessengerLine } from "react-icons/ri";
 import { PawRanks } from "../../utils/PawRanks";
 import Api from "../../API/Mock.api";
@@ -79,10 +81,10 @@ export default function Card(props) {
 							צור קשר: <AiOutlineWhatsApp /> <RiMessengerLine /> <AiOutlinePhone />
 						</div>
 						<button onClick={changeRank} name="increase" >
-							
+							<AiOutlineLike />
 						</button>
 						<button onClick={changeRank} name="decrease" >
-
+							<AiOutlineDislike />
 						</button>
 					</div>
 				}
