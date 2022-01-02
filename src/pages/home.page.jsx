@@ -7,18 +7,23 @@ export default function Home(props) {
 	const [isLoader, setLoader]	= useState(true);
 
 	useEffect(() => {
-		if (data) {
+		if (props.data) {
 			setLoader(false);
 		}
 	}, []);
 
 	const displayRandomUsers = () => {
-		const res = [];
-		for (let i = 0; i < 4; ++i) {
-			let random = Math.floor(Math.random() * props.data.length);
-			res.push(<Card key={props.data[random].id} user={props.data[random]} />);
-		}
-		return res;
+		// const res = [];
+		// for (let i = 0; i < 4; ++i) {
+		// 	let random = Math.floor(Math.random() * props.data.length);
+		// 	res.push(<Card key={props.data[random].id} user={props.data[random]} />);
+		// }
+		// return res;
+		return props.data.map((walker) => {
+			return (
+				<Card key={walker.id} walker={walker} />
+			)
+		})
 	}
 
 	return (
