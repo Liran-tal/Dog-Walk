@@ -13,7 +13,7 @@ export default function NavBar() {
 					</div>
 				</div>
 			</Link>
-			<Link to="/create" >
+			<Link to="/login" >
 				<div >
 					התחבר
 				</div>
@@ -26,14 +26,6 @@ export default function NavBar() {
 					</div>
 				</div>
 			</Link>
-			{/* <Link to="/search" >
-				<div>
-					<FaPaw />
-					<div>
-						המובילים ביותר
-					</div>
-				</div>
-			</Link> */}
 		</div>
 	)
 }

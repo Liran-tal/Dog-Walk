@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useMemo} from 'react';
 import { BrowserRouter, Routes, Route, Links } from 'react-router-dom';
 import Api from './API/Mock.api.js';
-import Home from './pages/Home.page.jsx';
+import Home from './pages/home/Home.page.jsx';
 import DogWalker from './pages/walkerProfile/WalkerProfile.page.jsx';
 import NavBar from './components/NavBar/NavBar.component.jsx';
-
+import Login from './pages/login/Login.page.jsx';
 import PageNotFound from "./pages/notFound/NotFound.page.jsx";
 import { UserContext } from './components/UserContext/UserContext.js';
 import './App.css';
@@ -18,6 +18,7 @@ function App() {
 		async function getUsersData() {
 			try {
 				const data = await Api.getData();
+        console.log(data);
 				if (data) {
 					setData(data);
 				}
@@ -32,7 +33,7 @@ function App() {
 
 		getUsersData();
 	}, []);
-
+  console.log("user: ", user);
   return (
     <div className="App">
       בוקר טוב עולם   

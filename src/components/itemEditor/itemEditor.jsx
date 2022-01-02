@@ -10,37 +10,73 @@ export default function itemEditor(props) {
 				className="ui form" 
 			>
 				<label>
-					Model:
+					שם:
 					<div className="field">
 						<input 
 							type="text"
-							name="model" 
-							defaultValue={props.item.model} 
-							placeholder="Item model"
+							name="name" 
+							defaultValue={props.item.name} 
+							placeholder="מעיין ישראלי"
 							onChange={props.onChange}
 						/>
 					</div>
 				</label>
 				<label>
-					Items in stock:
+					מספר כלבים מירבי בטיול?:
 					<div className="field">
 						<input 
 							type="text" 
-							name="inStock"
-							defaultValue={props.item.inStock} 
-							placeholder="Items in stock"
+							name="dogsNum"
+							defaultValue={props.item.dogsNum} 
+							placeholder="3"
 							onChange={props.onChange}
 						/>
 					</div>
 				</label>
 				<label>
-					Image
+					גיל:
+					<div className="field">
+						<input 
+							type="text" 
+							name="age"
+							defaultValue={props.item.age} 
+							placeholder="23"
+							onChange={props.onChange}
+						/>
+					</div>
+				</label>
+				<label>
+					אזור פעילות:
+					<div className="field">
+						<input 
+							type="text" 
+							name="location"
+							defaultValue={props.item.location} 
+							placeholder="תל-אביב"
+							onChange={props.onChange}
+						/>
+					</div>
+				</label>
+				<label>
+					טלפון:
+					<div className="field">
+						<input 
+							type="text" 
+							name="phone"
+							defaultValue={props.item.phone} 
+							placeholder="05x-xxx-xx-xx"
+							onChange={props.onChange}
+						/>
+					</div>
+				</label>
+				<label>
+					תמונת פרופיל
 					<div className="field">
 						<input 
 							type="text" 
 							name="avatar"
 							defaultValue={props.item.avatar} 
-							placeholder="https://this-image-url.com"
+							placeholder="כלבים שמחים בטיול"
 							onChange={props.onChange}
 						/>
 					</div>
@@ -53,7 +89,7 @@ export default function itemEditor(props) {
 				onClick={props.onSubmit}
 				value={props.isEdit ? "edit" : "add"}
 			>
-				Submit
+				שליחה
 			</button>
 		</div>
 	)

@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
-import Api from "../API/Mock.api";
-import Card from "../components/card/card";
-import Loader from "../components/Loader/loader";
+import Api from "../../API/Mock.api";
+import Card from "../../components/card/card";
+import Loader from "../../components/Loader/loader";
 
 export default function Home(props) {
 
@@ -14,7 +14,6 @@ export default function Home(props) {
 	}, []);
 
 	const displayRandomUsers = () => {
-		console.log(props);
 		// const res = [];
 		if (!props.data) {
 			return <Loader />

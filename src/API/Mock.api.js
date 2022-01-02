@@ -7,13 +7,14 @@ const ApiHeader = axios.create({ baseURL: "https://61d00d75cd2ee50017cc97bc.mock
 
 export default class Api {
 
-	static data = [];
+	// static data = [];
 
   static getData = async (id) => {
 		try {
 			const {data} = await ApiHeader.get(id); 
-			this.data = data
-			return this.data;
+			// this.data = data
+			// return this.data;
+			return data;
 			
 		} catch (error) {
 			return error

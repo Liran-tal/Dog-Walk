@@ -1,6 +1,6 @@
 import React from "react";
-import Api from "../API/Mock.api";
-import ItemEditor from "../components/itemEditor/itemEditor";
+import Api from "../../API/Mock.api";
+import ItemEditor from "../../components/itemEditor/itemEditor";
 
 
 export default function EditPage (props) {
