@@ -2,7 +2,7 @@ import { useContext } from "react";
 import axios from "axios";
 
 
-const ApiHeader = axios.create({ baseURL: "https://61d00d75cd2ee50017cc97bc.mockapiHeader.io/dogwalk", })
+const ApiHeader = axios.create({ baseURL: "https://61d00d75cd2ee50017cc97bc.mockapi.io/dogwalk/", })
 
 
 export default class Api {

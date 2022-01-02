@@ -5,15 +5,15 @@ import { FaPaw } from "react-icons/fa"
 import { AiOutlineStar } from "react-icons/ai"
 import { AiFillStar } from "react-icons/ai"
 
-const ranks = [
-	<div><FaPaw /></div>, 
-	<div><FaPaw /><FaPaw /></div>, 
-	<div><FaPaw /><FaPaw /><FaPaw /></div>, 
-	<div><FaPaw /><FaPaw /><FaPaw /><FaPaw /></div>, 
-]
+
 
 export default function Card({ walker }) {
-
+const ranks = [
+	<span><FaPaw /></span>, 
+	<span><FaPaw /><FaPaw /></span>, 
+	<span><FaPaw /><FaPaw /><FaPaw /></span>, 
+	<span><FaPaw /><FaPaw /><FaPaw /><FaPaw /></span>, 
+]
 	const [isFavorite, setIsFavorite] = useState(false);
 
 	function toggleFavorite() {
@@ -35,7 +35,7 @@ export default function Card({ walker }) {
 				</div>
 				<div className="content">
 					<div className="header">
-						שם: {walker.model}
+						שם: {walker.name}
 					</div>
 					<div className="description">
 						עיר: {walker.location}
@@ -43,16 +43,25 @@ export default function Card({ walker }) {
 					<div className="description">
 						מספר כלבים מקסימלי בטיול: {walker.dogsNum}
 					</div>
+					<div className="description">
+						 דירוג: {ranks[walker.rank]}
+					</div>
 				</div>
 			</Link>
 			<div>
-				<Button
+				{/* <Button
 					text={(isFavorite ? <AiFillStar /> : <AiOutlineStar />) + "הוסף למועדפים"}
 					value="favorites"
 					id={walker.id}
 					style={{}}
 					onClick={toggleFavorite}
-				/>
+				/> */}
+				<button 
+					onClick={toggleFavorite}
+				>
+					{isFavorite ? <AiFillStar /> : <AiOutlineStar />}
+					הוסף למועדפים
+				</button>
 			</div>
 		</div>
 	)

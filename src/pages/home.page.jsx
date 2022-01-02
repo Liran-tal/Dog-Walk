@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
 import Api from "../API/Mock.api";
 import Card from "../components/card/card";
+import Loader from "../components/Loader/loader";
 
 export default function Home(props) {
 
@@ -13,7 +14,11 @@ export default function Home(props) {
 	}, []);
 
 	const displayRandomUsers = () => {
+		console.log(props);
 		// const res = [];
+		if (!props.data) {
+			return <Loader />
+		}
 		// for (let i = 0; i < 4; ++i) {
 		// 	let random = Math.floor(Math.random() * props.data.length);
 		// 	res.push(<Card key={props.data[random].id} user={props.data[random]} />);

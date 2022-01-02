@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import { BrowserRouter, Routes, Route, Links } from 'react-router-dom';
 import Api from './API/Mock.api.js';
 import Home from './pages/Home.page.jsx';
@@ -12,11 +12,12 @@ import './App.css';
 function App() {
 
   const [data, setData] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
 		async function getUsersData() {
 			try {
-				const data = Api.getData();
+				const data = await Api.getData();
 				if (data) {
 					setData(data);
 				}
@@ -27,7 +28,6 @@ function App() {
       catch (error) {
 				
 			}
-
 		} 
 
 		getUsersData();
@@ -38,7 +38,7 @@ function App() {
       בוקר טוב עולם   
       <BrowserRouter>
         {/* {displayTags()} */}
-        <UserContext.Provider>
+        <UserContext.Provider value={{user, setUser}}>
           <Routes>
             <Route 
               path="/"
