@@ -4,10 +4,14 @@ import { Link } from "react-router-dom";
 // import { FaPaw } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
+import { AiOutlineWhatsApp } from "react-icons/ai";
+import { AiOutlinePhone } from "react-icons/ai";
+import { RiMessengerLine } from "react-icons/ri";
 import { PawRanks } from "../../utils/PawRanks";
+import Api from "../../API/Mock.api";
 
 
-export default function Card({ walker }) {
+export default function Card(props) {
 // const ranks = [
 // 	<span><FaPaw /></span>, 
 // 	<span><FaPaw /><FaPaw /></span>, 
@@ -15,6 +19,7 @@ export default function Card({ walker }) {
 // 	<span><FaPaw /><FaPaw /><FaPaw /><FaPaw /></span>, 
 // ]
 	const [isFavorite, setIsFavorite] = useState(false);
+	const [walker, setwalker] = useState(props.walker);
 
 	function toggleFavorite() {
 		if (isFavorite) {
@@ -25,6 +30,20 @@ export default function Card({ walker }) {
 
 		localStorage.setItem(walker.id, walker);
 		setIsFavorite(true);
+	}
+
+	async function changeRank({target}) {
+		walker.rank = target.name === increase 
+			? walker.rank + 1
+			: walker.rank - 1;
+
+		try {
+			if (await Api.editItem(walker.id, walker)) {
+				setwalker (walker);
+			}
+		} catch (error) {
+			console.error(error);
+		}
 	}
 
 	return (
@@ -43,10 +62,30 @@ export default function Card({ walker }) {
 					<div className="description">
 						מספר כלבים מקסימלי בטיול: {walker.dogsNum}
 					</div>
+					{
+						props.isProfile && 
+						<div className="description">
+							גיל: {walker.age}
+						</div>
+					}
 					<div className="description">
 						 דירוג: {PawRanks[walker.rank]}
 					</div>
 				</div>
+				{ 
+					props.isProfile &&
+					<div>
+						<div>
+							צור קשר: <AiOutlineWhatsApp /> <RiMessengerLine /> <AiOutlinePhone />
+						</div>
+						<button onClick={changeRank} name="increase" >
+							
+						</button>
+						<button onClick={changeRank} name="decrease" >
+
+						</button>
+					</div>
+				}
 			</Link>
 			<div>
 				{/* <Button
