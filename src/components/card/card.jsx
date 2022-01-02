@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import Button from "../button/button";
-// import { FaPaw } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineWhatsApp } from "react-icons/ai";
@@ -14,12 +12,7 @@ import Api from "../../API/Mock.api";
 
 
 export default function Card(props) {
-// const ranks = [
-// 	<span><FaPaw /></span>, 
-// 	<span><FaPaw /><FaPaw /></span>, 
-// 	<span><FaPaw /><FaPaw /><FaPaw /></span>, 
-// 	<span><FaPaw /><FaPaw /><FaPaw /><FaPaw /></span>, 
-// ]
+
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [walker, setwalker] = useState(props.walker);
 
@@ -35,18 +28,17 @@ export default function Card(props) {
 	}
 
 	async function changeRank(command) {
-		console.log(command);
-		// walker.rank = command === "increase" 
-		// 	? walker.rank + 1
-		// 	: walker.rank - 1;
+		walker.rank = command === "increase" 
+			? walker.rank + 1
+			: walker.rank - 1;
 
-		// try {
-		// 	if (await Api.editItem(walker.id, walker)) {
-		// 		setwalker (walker);
-		// 	}
-		// } catch (error) {
-		// 	console.error(error);
-		// }
+		try {
+			if (await Api.editItem(walker.id, walker)) {
+				setwalker (walker);
+			}
+		} catch (error) {
+			console.error(error);
+		}
 	}
 
 	return (
@@ -91,13 +83,6 @@ export default function Card(props) {
 				}
 			</Link>
 			<div>
-				{/* <Button
-					text={(isFavorite ? <AiFillStar /> : <AiOutlineStar />) + "הוסף למועדפים"}
-					value="favorites"
-					id={walker.id}
-					style={{}}
-					onClick={toggleFavorite}
-				/> */}
 				<button 
 					onClick={toggleFavorite}
 				>

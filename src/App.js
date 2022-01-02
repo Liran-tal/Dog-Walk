@@ -2,10 +2,10 @@ import React, {useState, useEffect, useMemo} from 'react';
 import { BrowserRouter, Routes, Route, Links } from 'react-router-dom';
 import Api from './API/Mock.api.js';
 import Home from './pages/Home.page.jsx';
-import DogWalker from './pages/WalkerProfile.page.jsx';
+import DogWalker from './pages/walkerProfile/WalkerProfile.page.jsx';
 import NavBar from './components/NavBar/NavBar.component.jsx';
 
-import PageNotFound from "./pages/NotFound.page.jsx";
+import PageNotFound from "./pages/notFound/NotFound.page.jsx";
 import { UserContext } from './components/UserContext/UserContext.js';
 import './App.css';
 
@@ -49,7 +49,8 @@ function App() {
               element={<DogWalker data={data} />}
             />
             <Route 
-
+              path="/login"
+              element={<Login data={data} />}
             />
             <Route 
               path="*"
