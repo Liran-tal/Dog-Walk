@@ -34,18 +34,19 @@ export default function Card(props) {
 		setIsFavorite(true);
 	}
 
-	async function changeRank({target}) {
-		walker.rank = target.name === increase 
-			? walker.rank + 1
-			: walker.rank - 1;
+	async function changeRank(command) {
+		console.log(command);
+		// walker.rank = command === "increase" 
+		// 	? walker.rank + 1
+		// 	: walker.rank - 1;
 
-		try {
-			if (await Api.editItem(walker.id, walker)) {
-				setwalker (walker);
-			}
-		} catch (error) {
-			console.error(error);
-		}
+		// try {
+		// 	if (await Api.editItem(walker.id, walker)) {
+		// 		setwalker (walker);
+		// 	}
+		// } catch (error) {
+		// 	console.error(error);
+		// }
 	}
 
 	return (
@@ -71,7 +72,7 @@ export default function Card(props) {
 						</div>
 					}
 					<div className="description">
-						 דירוג: {PawRanks[walker.rank]}
+						 דירוג: {PawRanks[walker.rank % 4]}
 					</div>
 				</div>
 				{ 
@@ -80,10 +81,10 @@ export default function Card(props) {
 						<div>
 							צור קשר: <AiOutlineWhatsApp /> <RiMessengerLine /> <AiOutlinePhone />
 						</div>
-						<button onClick={changeRank} name="increase" >
+						<button onClick={() => changeRank("increase")} >
 							<AiOutlineLike />
 						</button>
-						<button onClick={changeRank} name="decrease" >
+						<button onClick={() => changeRank("decrease")} >
 							<AiOutlineDislike />
 						</button>
 					</div>
