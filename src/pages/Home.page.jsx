@@ -26,7 +26,7 @@ export default function Home(props) {
 		// return res;
 		return props.data.map((walker) => {
 			return (
-				<Card key={walker.id} walker={walker} />
+				<Card key={walker.id} walker={walker} isProfile={false} />
 			)
 		})
 	}

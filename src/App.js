@@ -45,7 +45,7 @@ function App() {
               element={<Home data={data} />}
             />
             <Route 
-              path="/walker/:name"
+              path="/walker/:id"
               element={<DogWalker data={data} />}
             />
             <Route 

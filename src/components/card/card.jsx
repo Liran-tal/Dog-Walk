@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "../button/button";
-import { FaPaw } from "react-icons/fa"
-import { AiOutlineStar } from "react-icons/ai"
-import { AiFillStar } from "react-icons/ai"
-
+// import Button from "../button/button";
+// import { FaPaw } from "react-icons/fa";
+import { AiOutlineStar } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
+import { PawRanks } from "../../utils/PawRanks";
 
 
 export default function Card({ walker }) {
-const ranks = [
-	<span><FaPaw /></span>, 
-	<span><FaPaw /><FaPaw /></span>, 
-	<span><FaPaw /><FaPaw /><FaPaw /></span>, 
-	<span><FaPaw /><FaPaw /><FaPaw /><FaPaw /></span>, 
-]
+// const ranks = [
+// 	<span><FaPaw /></span>, 
+// 	<span><FaPaw /><FaPaw /></span>, 
+// 	<span><FaPaw /><FaPaw /><FaPaw /></span>, 
+// 	<span><FaPaw /><FaPaw /><FaPaw /><FaPaw /></span>, 
+// ]
 	const [isFavorite, setIsFavorite] = useState(false);
 
 	function toggleFavorite() {
@@ -29,7 +29,7 @@ const ranks = [
 
 	return (
 		<div className="ui card">
-			<Link to={"/walker/" + walker.name} >
+			<Link to={"/walker/" + walker.id} >
 				<div className="image">
 					<img src={walker.avatar} alt={walker.name}/>
 				</div>
@@ -44,7 +44,7 @@ const ranks = [
 						מספר כלבים מקסימלי בטיול: {walker.dogsNum}
 					</div>
 					<div className="description">
-						 דירוג: {ranks[walker.rank]}
+						 דירוג: {PawRanks[walker.rank]}
 					</div>
 				</div>
 			</Link>
