@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useParams } from 'react-router-dom';
-// import { PawRanks } from "../utils/PawRanks";
 import Card from '../../components/card/card';
 
 export default function DogWalker(props) {

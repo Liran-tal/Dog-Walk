@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
 		async function getUsersData() {
 			try {
-				const data = await Api.getData();
+				const { data } = await Api.getData();
 				if (data) {
 					setData(data);
 				}
@@ -32,7 +32,7 @@ function App() {
 		} 
 
 		getUsersData();
-	}, []);
+	}, [user]);
 
 
   console.log("user: ", user);

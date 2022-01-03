@@ -52,6 +52,7 @@ export default function EditPage (props) {
 		}
 
 		try {
+			console.log(user.id, walkerObject);
 			await Api.editItem(user.id, walkerObject);	
 			setUser(walkerObject);
 			navigate("/") ;
@@ -69,4 +70,14 @@ export default function EditPage (props) {
 			isEdit={isEdit}
 		/>
 	);
+}
+
+
+findItemIndex = (itemId) => {
+	this.data.splice(itemIndex, 1, newItem);
+	console.log(itemId);
+	return this.data.findIndex((item) => {
+		console.log(item.id);
+		return item.id === itemId;
+	})
 }
