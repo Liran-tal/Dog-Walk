@@ -18,7 +18,6 @@ function App() {
 		async function getUsersData() {
 			try {
 				const data = await Api.getData();
-        console.log(data);
 				if (data) {
 					setData(data);
 				}
@@ -33,13 +32,18 @@ function App() {
 
 		getUsersData();
 	}, []);
+
+
   console.log("user: ", user);
+  console.log({data});
+  
+  
   return (
     <div className="App">
       בוקר טוב עולם   
       <BrowserRouter>
-        {/* {displayTags()} */}
         <UserContext.Provider value={{user, setUser}}>
+          {/* {displayTags()} */}
           <Routes>
             <Route 
               path="/"
@@ -58,8 +62,8 @@ function App() {
               element={<PageNotFound />}
             />
           </Routes>
+          <NavBar />
         </UserContext.Provider>
-        <NavBar />
       </BrowserRouter>
     </div>
   );

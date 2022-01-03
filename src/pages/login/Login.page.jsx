@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import EditPage from "../edit/editPage";
 import Api from "../../API/Mock.api";
 import { UserContext } from "../../components/UserContext/UserContext";
@@ -9,7 +9,8 @@ export default function Login(props) {
 	const [userName, setUserName] = useState("");
 	const [userPassword, setUserPassword] = useState("");
 	const [newUser, setNewUser] = useState(false);
-	const {user, setUser} = useContext(UserContext)
+	const {user, setUser} = useContext(UserContext);
+	let navigate = useNavigate();
 
 	function loginInputHandler({target}){
 		target.name === "userName" && setUserName(target.value);
@@ -22,6 +23,7 @@ export default function Login(props) {
 		})
 
 		setUser(userData);
+		navigate("/")
 	}
 
 	return (

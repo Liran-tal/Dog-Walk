@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Api from "../../API/Mock.api";
 import ItemEditor from "../../components/itemEditor/itemEditor";
 import { UserContext } from "../../components/UserContext/UserContext";
@@ -24,6 +25,7 @@ export default function EditPage (props) {
 	const [walkerObject, setWalkerObject] = useState(defaultObject);
 	const [isEdit, setIsEdit] = useState(props.isEdit);
 	const {user, setUser} = useContext(UserContext);
+	let navigate = useNavigate();
 
 	useEffect (() => {
 		if (user && isEdit) {	
@@ -42,7 +44,7 @@ export default function EditPage (props) {
 		if (event.target.value === "add") {
 			try {
 				await Api.addItem(walkerObject);
-				return ;
+				navigate("/login") ;
 			} 
 			catch (error) {
 			console.error(error);	
@@ -52,7 +54,7 @@ export default function EditPage (props) {
 		try {
 			await Api.editItem(user.id, walkerObject);	
 			setUser(walkerObject);
-			return ;
+			navigate("/") ;
 		} 
 		catch (error) {
 			console.error(error);	

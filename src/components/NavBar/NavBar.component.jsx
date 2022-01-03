@@ -1,8 +1,17 @@
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AiTwotoneHome } from "react-icons/ai"
 import { AiFillStar } from "react-icons/ai"
-import { FaPaw } from "react-icons/fa"
+import { FiUser } from "react-icons/fi"
+import { UserContext } from "../UserContext/UserContext";
+
+
 export default function NavBar() {
+
+	const {user, setUser} = useContext(UserContext);
+
+	console.log("user: ", user);
+
 	return (
 		<div >
 			<Link to="/" >
@@ -13,9 +22,12 @@ export default function NavBar() {
 					</div>
 				</div>
 			</Link>
-			<Link to="/login" >
+			<Link to={user ? "/user" : "/login"} >
 				<div >
-					התחבר
+					<FiUser />
+					<div>
+						{user ? <span>{user.name}</span> : <span>התחבר</span>}
+					</div>
 				</div>
 			</Link>
 			<Link to="/favorites" >
