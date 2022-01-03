@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import EditPage from "../edit/editPage";
-import Api from "../../API/Mock.api";
 import { UserContext } from "../../components/UserContext/UserContext";
 
 

@@ -10,8 +10,6 @@ export default function NavBar() {
 
 	const {user, setUser} = useContext(UserContext);
 
-	console.log("user: ", user);
-
 	return (
 		<div >
 			<Link to="/" >
@@ -26,7 +24,7 @@ export default function NavBar() {
 				<div >
 					<FiUser />
 					<div>
-						{user ? <span>{user.name}</span> : <span>התחבר</span>}
+						{user ? <span>{user.name}</span> : <span>התחברות</span>}
 					</div>
 				</div>
 			</Link>
