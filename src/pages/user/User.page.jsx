@@ -3,25 +3,27 @@ import { useNavigate } from "react-router-dom";
 import EditPage from "../edit/editPage";
 import { UserContext } from "../../components/UserContext/UserContext";
 
-
-
 export default function User(props) {
 	const {user, setUser} = useContext(UserContext);
-	const {isEdit, setIsEdit} = useState(false);
+	const [isEdit, setIsEdit] = useState(false);
 	let navigate = useNavigate();
 
 	if (!user) {
 		navigate("/");
 	}
 
-	function logOut() {
-		setUser(null);
+	async function logOut() {
+		await setUser(null);
+	}
+
+	function editUser() {
+		setIsEdit(true);
 	}
 
 	return (
 		<div>
 			<h3>
-				{user.name}
+				{user && user.name}
 			</h3>
 			<button
 				onClick={() => setIsEdit(true)}

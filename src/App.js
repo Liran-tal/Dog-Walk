@@ -8,6 +8,7 @@ import Login from './pages/login/Login.page.jsx';
 import PageNotFound from "./pages/notFound/NotFound.page.jsx";
 import { UserContext } from './components/UserContext/UserContext.js';
 import './App.css';
+import User from './pages/user/User.page.jsx';
 
 function App() {
 
@@ -56,6 +57,10 @@ function App() {
             <Route 
               path="/login"
               element={<Login data={data} />}
+            />
+            <Route 
+              path="/user"
+              element={<User />}
             />
             <Route 
               path="*"
