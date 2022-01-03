@@ -14,11 +14,13 @@ function App() {
 
   const [data, setData] = useState(null);
   const [user, setUser] = useState(null);
+  const [isUpdateData, setisUpdateData] = useState(false);
+
 
   useEffect(() => {
 		async function getUsersData() {
 			try {
-				const { data } = await Api.getData();
+				const data = await Api.getData();
 				if (data) {
 					setData(data);
 				}
@@ -32,19 +34,25 @@ function App() {
 		} 
 
 		getUsersData();
-	}, [user]);
+	}, [isUpdateData]);
+
+
+  function userDidChanged () {
+    setisUpdateData(!isUpdateData);
+  } 
+
 
 
   console.log("user: ", user);
   console.log({data});
-  
-  
+
+
+
   return (
     <div className="App">
       בוקר טוב עולם   
       <BrowserRouter>
         <UserContext.Provider value={{user, setUser}}>
-          {/* {displayTags()} */}
           <Routes>
             <Route 
               path="/"
@@ -56,11 +64,11 @@ function App() {
             />
             <Route 
               path="/login"
-              element={<Login data={data} />}
+              element={<Login data={data} callback={userDidChanged}/>}
             />
             <Route 
               path="/user"
-              element={<User />}
+              element={<User callback={userDidChanged}/>}
             />
             <Route 
               path="*"

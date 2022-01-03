@@ -70,7 +70,7 @@ export default function Login(props) {
 					הירשם!
 				</button>
 			</div>
-			{newUser && <EditPage isEdit={false} />}
+			{newUser && <EditPage isEdit={false} callback={props.callback} />}
 		</div>
 	)
 }

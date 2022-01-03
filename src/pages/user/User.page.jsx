@@ -34,6 +34,7 @@ export default function User(props) {
 				isEdit &&
 					<EditPage 
 						isEdit={isEdit} 
+						callback={props.callback}
 					/>
 			}
 			{

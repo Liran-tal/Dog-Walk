@@ -90,13 +90,13 @@ export default function itemEditor(props) {
 			>
 				שליחה
 			</button>
-			{/* <div>
+			<div>
 				<button
-					onClick={deleteAccount}
+					onClick={props.onDelete}
 				>
 					מחיקת החשבון
 				</button>
-			</div> */}
+			</div>
 		</div>
 	)
 }

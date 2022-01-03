@@ -33,17 +33,18 @@ export default function EditPage (props) {
 		}
 	}, []);
 
-	function onChange ({target}) {
+	function onChangeHandler ({target}) {
 		setWalkerObject((walkerObject) => ({
 			...walkerObject,
 			[target.name]: target.value,
 		}))
 	};
 
-	async function onSubmit (event) {
+	async function onSubmitHandler (event) {
 		if (event.target.value === "add") {
 			try {
 				await Api.addItem(walkerObject);
+				props.callback();
 				navigate("/login") ;
 			} 
 			catch (error) {
@@ -52,8 +53,8 @@ export default function EditPage (props) {
 		}
 
 		try {
-			console.log(user.id, walkerObject);
 			await Api.editItem(user.id, walkerObject);	
+			props.callback();
 			setUser(walkerObject);
 			navigate("/") ;
 		} 
@@ -61,23 +62,25 @@ export default function EditPage (props) {
 			console.error(error);	
 		}
 	};
+	
+	async function onDeleteHandler () {
+		try {
+			await Api.deleteItem(walkerObject.id);
+			props.callback();
+			navigate("/") ;
+		} 
+		catch (error) {
+			console.error(error);
+		}
+	}
 
 	return(
 		<ItemEditor 
 			item={walkerObject}
-			onChange={onChange}
-			onSubmit={onSubmit}
+			onChange={onChangeHandler}
+			onSubmit={onSubmitHandler}
+			onDelete={onDeleteHandler}
 			isEdit={isEdit}
 		/>
 	);
-}
-
-
-findItemIndex = (itemId) => {
-	this.data.splice(itemIndex, 1, newItem);
-	console.log(itemId);
-	return this.data.findIndex((item) => {
-		console.log(item.id);
-		return item.id === itemId;
-	})
 }
