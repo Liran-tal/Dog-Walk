@@ -68,10 +68,11 @@ export default function Card(props) {
 							גיל: {walker.age}
 						</div>
 					}
-					<div className="description">
+					<div className={"description"}>
 						 דירוג: {PawRanks[walker.rank % 4]}
 					</div>
 				</div>
+				
 				{ 
 					props.isProfile &&
 					<div>
@@ -87,7 +88,7 @@ export default function Card(props) {
 					</div>
 				}
 			</Link>
-			<div>
+			<div className="Card-favorites-btn-wrapper">
 				<button 
 					onClick={toggleFavorite}
 				>

@@ -1,1 +1,31 @@
-@import url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css")
+@import url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css");
+
+
+.image img{
+	width: 100%;
+	height: 10%;
+}
+
+.content {
+	padding: 0 5%;
+	text-align: start;
+}
+
+.header,
+.description { 
+	font-size: 1.3rem;
+	margin: 3%;
+}
+
+
+.Card-favorites-btn-wrapper{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2%;
+	background-color: var(--mainBackground);
+}
+
+.Card-favorites-btn-wrapper {
+	
+}

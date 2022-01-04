@@ -55,7 +55,7 @@ function App() {
       <BrowserRouter>
         <Logo />
         <UserContext.Provider value={{user, setUser}}>
-          <div >
+          <div className='App-main-wrapper'>
             <Routes>
               <Route 
                 path="/"
