@@ -11,10 +11,14 @@ import { PawRanks } from "../../utils/PawRanks";
 import Api from "../../API/Mock.api";
 
 
+
+
 export default function Card(props) {
 
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [walker, setwalker] = useState(props.walker);
+	const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites") || "[]"));
+
 
 	function toggleFavorite() {
 		if (isFavorite) {

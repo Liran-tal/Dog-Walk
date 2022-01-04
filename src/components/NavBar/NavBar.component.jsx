@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AiTwotoneHome } from "react-icons/ai"
 import { AiFillStar } from "react-icons/ai"
 import { FiUser } from "react-icons/fi"
+import { BiSearchAlt2 } from "react-icons/bi"
 import { UserContext } from "../UserContext/UserContext";
 
 
@@ -33,6 +34,14 @@ export default function NavBar() {
 					<AiFillStar />
 					<div>
 						מועדפים
+					</div>
+				</div>
+			</Link>
+			<Link to="/search" >
+				<div>
+					<BiSearchAlt2 />
+					<div>
+						חיפוש
 					</div>
 				</div>
 			</Link>
