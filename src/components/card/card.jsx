@@ -9,7 +9,7 @@ import { AiOutlineDislike } from "react-icons/ai";
 import { RiMessengerLine } from "react-icons/ri";
 import { PawRanks } from "../../utils/PawRanks";
 import Api from "../../API/Mock.api";
-
+import "./Card.style.css";
 
 
 

@@ -16,8 +16,6 @@
 	display: flex;
 	width: 20%;
 	height: 80%;
-	border: 1px solid black ;
-	/* font-size: smaller; */
 }
 
 .Logo-paw-1,
@@ -38,4 +36,5 @@
 	align-self: center;
 	margin: 0 auto;
 	color: #fff;
+	font-family: 'Assistant', sans-serif;
 }
