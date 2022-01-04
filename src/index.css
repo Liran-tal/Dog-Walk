@@ -6,13 +6,11 @@
   box-sizing: border-box;
 }
 
-.root {
-  --hamra: #BF360C;
-  --tag-gray: #4F4F4F;
-
-}
-
 body {
+  width: 100vw;
+  height: 100vh;
+  --mainBackground: #BF360C;
+  --tag: #4F4F4F;
   font-family: 'Assistant', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -21,8 +19,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Assistant', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 

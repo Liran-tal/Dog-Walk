@@ -10,6 +10,7 @@ import { UserContext } from './components/UserContext/UserContext.js';
 import './App.css';
 import User from './pages/user/User.page.jsx';
 import Favorites from './pages/favorites/Favorites.page.jsx';
+import Logo from './components/logo/Logo.jsx';
 
 function App() {
 
@@ -51,8 +52,8 @@ function App() {
 
   return (
     <div className="App">
-      בוקר טוב עולם   
       <BrowserRouter>
+        <Logo />
         <UserContext.Provider value={{user, setUser}}>
           <div >
             <Routes>
