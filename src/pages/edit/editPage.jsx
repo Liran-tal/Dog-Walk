@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Api from "../../API/Mock.api";
-import ItemEditor from "../../components/itemEditor/itemEditor";
+import ItemEditor from "../../components/itemEditor/ItemEditor";
 import { UserContext } from "../../components/UserContext/UserContext";
 
 

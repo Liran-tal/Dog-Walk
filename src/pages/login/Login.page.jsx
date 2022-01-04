@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import EditPage from "../edit/editPage";
+import EditPage from "../edit/EditPage";
 import { UserContext } from "../../components/UserContext/UserContext";
 
 

@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from "react";
-import Card from "../../components/card/card";
-import Loader from "../../components/Loader/loader";
+import Card from "../../components/card/Card";
+import Loader from "../../components/Loader/Loader";
 
 export default function Home(props) {
 

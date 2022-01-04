@@ -47,7 +47,7 @@ export default function Card(props) {
 	}
 
 	return (
-		<div className="ui card">
+		<div className="ui centered card" >
 			<Link to={"/walker/" + walker.id} >
 				<div className="image">
 					<img src={walker.avatar} alt={walker.name}/>
@@ -60,7 +60,7 @@ export default function Card(props) {
 						עיר: {walker.location}
 					</div>
 					<div className="description">
-						מספר כלבים מקסימלי בטיול: {walker.dogsNum}
+						מספר כלבים בטיול: {walker.dogsNum}
 					</div>
 					{
 						props.isProfile && 
@@ -69,33 +69,42 @@ export default function Card(props) {
 						</div>
 					}
 					<div className={"description"}>
-						 דירוג: {PawRanks[walker.rank % 4]}
+						<span className="Card-descrition-title">דירוג: </span>
+						<span className="Card-descrition-text">{PawRanks[walker.rank % 4]}</span> 
 					</div>
-				</div>
-				
-				{ 
-					props.isProfile &&
-					<div>
-						<div>
-							צור קשר: <AiOutlineWhatsApp /> <RiMessengerLine /> <AiOutlinePhone />
+					{ 
+						props.isProfile &&
+						<div  >
+							<div className="Card-contact-wrapper">
+								צור קשר: <AiOutlineWhatsApp /> <RiMessengerLine /> <AiOutlinePhone />
+							</div>
+							<div className="Card-likes-btns-wrapper">
+								<button 
+									className="Card-likes-btn" 
+									onClick={() => changeRank("increase")} 
+									>
+									<AiOutlineLike />
+								</button>
+								<button 
+									onClick={() => changeRank("decrease")} 
+									className="Card-likes-btn"
+									>
+									<AiOutlineDislike />
+								</button>
+							</div>
 						</div>
-						<button onClick={() => changeRank("increase")} >
-							<AiOutlineLike />
-						</button>
-						<button onClick={() => changeRank("decrease")} >
-							<AiOutlineDislike />
-						</button>
-					</div>
-				}
+					}
+				</div>
+				<div className="Card-favorites-btn-wrapper">
+					<button
+						className="Card-favorites-btn" 
+						onClick={toggleFavorite}
+						>
+						{isFavorite ? <AiFillStar /> : <AiOutlineStar />}
+						הוספה למועדפים
+					</button>
+				</div>
 			</Link>
-			<div className="Card-favorites-btn-wrapper">
-				<button 
-					onClick={toggleFavorite}
-				>
-					{isFavorite ? <AiFillStar /> : <AiOutlineStar />}
-					הוסף למועדפים
-				</button>
-			</div>
 		</div>
 	)
 }
