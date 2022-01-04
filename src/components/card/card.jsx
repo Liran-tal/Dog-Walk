@@ -34,6 +34,7 @@ export default function Card(props) {
 
 		try {
 			if (await Api.editItem(walker.id, walker)) {
+				props.callback();
 				setwalker (walker);
 			}
 		} catch (error) {

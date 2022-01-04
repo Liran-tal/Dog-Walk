@@ -56,7 +56,7 @@ function App() {
           <Routes>
             <Route 
               path="/"
-              element={<Home data={data} />}
+              element={<Home data={data} callback={userDidChanged} />}
             />
             <Route 
               path="/walker/:id"
