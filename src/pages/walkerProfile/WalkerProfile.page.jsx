@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import { useParams } from 'react-router-dom';
 import Card from '../../components/card/Card';
+import "./WalkerProfile.style.css"
 
 export default function DogWalker(props) {
 	const { id } = useParams();
@@ -18,7 +19,9 @@ export default function DogWalker(props) {
 		})
 
 		return (
-			<Card key={walker.id} walker={walker} isProfile={true} />
+			<div className='WalkerProfile-card-wrapper'>
+				<Card key={walker.id} walker={walker} isProfile={true} />
+			</div>
 		)
 	}
 

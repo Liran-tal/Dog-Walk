@@ -14,7 +14,7 @@ export default function NavBar() {
 	return (
 		<div className="Navbar Navbar-flex-row" >
 			<Link to="/" >
-				<div className="Navbar-flex-row" >
+				<div className="Navbar-link-flex" >
 					<AiTwotoneHome className="Navbar-link-icon" />
 					<div className="Navbar-link-text" >
 						בית
@@ -22,7 +22,7 @@ export default function NavBar() {
 				</div>
 			</Link>
 			<Link to={user ? "/user" : "/login"} >
-				<div className="Navbar-flex-row" >
+				<div className="Navbar-link-flex" >
 					<FiUser className="Navbar-link-icon" />
 					<div className="Navbar-link-text" >
 						{user ? <span>{user.name}</span> : <span>התחברות</span>}
@@ -30,7 +30,7 @@ export default function NavBar() {
 				</div>
 			</Link>
 			<Link to="/favorites" >
-				<div className="Navbar-flex-row" >
+				<div className="Navbar-link-flex" >
 					<AiFillStar className="Navbar-link-icon" />
 					<div className="Navbar-link-text" >
 						מועדפים
@@ -38,7 +38,7 @@ export default function NavBar() {
 				</div>
 			</Link>
 			<Link to="/search" >
-				<div className="Navbar-flex-row" >
+				<div className="Navbar-link-flex" >
 					<BiSearchAlt2 className="Navbar-link-icon" />
 					<div className="Navbar-link-text" >
 						חיפוש
