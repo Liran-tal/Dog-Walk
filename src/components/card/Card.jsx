@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
 import { AiOutlineWhatsApp } from "react-icons/ai";
@@ -14,11 +14,12 @@ import "./Card.style.css";
 
 
 export default function Card(props) {
-
+	
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [walker, setwalker] = useState(props.walker);
 	const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites") || "[]"));
-
+	let navigate = useNavigate();
+	
 
 	function toggleFavorite() {
 		if (isFavorite) {
@@ -105,6 +106,14 @@ export default function Card(props) {
 					</button>
 				</div>
 			</Link>
+			{
+				props.isProfile &&
+				<button  
+					className="Card-back-btn"
+					onClick={() => navigate(-1)}>
+					חזרה
+				</button>
+			}
 		</div>
 	)
 }

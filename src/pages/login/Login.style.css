@@ -1,0 +1,59 @@
+
+.Login-flex-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Login-wrapper {
+	width: 100%;
+	height: 80%;
+	justify-content: flex-start;
+	font-family: 'Assistant', sans-serif;
+}
+
+.Login-login-wrapper,
+.Login-new-user-wrapper {
+	align-items: flex-start;
+	width: 35%;
+	font-size: 1.2rem;
+	margin-bottom: 5%;
+}
+
+.Login-login-wrapper h2 {
+	align-self: center;
+}
+
+.Login-btn-wrapper {
+	width: 100%;
+	margin-top: 5%;
+}
+
+.Login-login-label {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2% 0;
+	
+}
+
+.Login-login-title {
+	margin: 0% 5% 1%;
+}
+
+.Login-new-user-wrapper h2 {
+	align-self: center;
+	margin: 0;
+}
+
+.Login-login-btn,
+.Login-new-user-btn {
+	border-radius: 5px;
+	background-color: var(--mainBackground);
+	color: #fff;
+	padding: 2%;
+	text-align: center;
+	margin: 0 auto;
+}
+

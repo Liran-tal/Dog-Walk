@@ -31,7 +31,15 @@ export default function Home(props) {
 	}
 
 	return (
-		displayRandomUsers()
+		<div
+			style={{padding: "3%"}}
+		>
+			<div
+				className="ui four cards"
+				>
+				{displayRandomUsers()}
+			</div>
+		</div>
 	)
 }
 

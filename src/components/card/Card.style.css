@@ -52,19 +52,25 @@
 
 
 .Card-likes-btn,
-.Card-favorites-btn {
+.Card-favorites-btn,
+.Card-back-btn {
 	width: 70%;
 	background-color: var(--mainBackground);
 	padding: 3%;
 	font-weight: 500;
 	border: 0;
-	border-radius: 5px;
+	border-radius: 5px; 
 	font-family: 'Assistant', sans-serif;
 	color: #fff;
 	cursor: pointer;
 }
 
-
 .Card-likes-btn {
 	margin: 5% 10% 0;
+}
+
+.Card-back-btn {
+	width: 50%;
+	margin: 0% auto 5%;
+	font-size: 1.2rem;
 }

@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import EditPage from "../edit/EditPage";
 import { UserContext } from "../../components/UserContext/UserContext";
+import "./Login.style.css";
 
 
 export default function Login(props) {
@@ -26,49 +27,62 @@ export default function Login(props) {
 	}
 
 	return (
-		<div>
-			<div>
+		<div className="Login-wrapper Login-flex-col">
+			<div className="Login-login-wrapper Login-flex-col">
 				<h2>
-					משתמש רשום?
+					נרשמת?
 				</h2>
-				<label >
-					שם משתמש
+				<label className="Login-login-label">
+					<span className="Login-login-title">
+						מה שמך?
+					</span>
 					<input 
+						className="Login-login-input"
 						type="text" 
 						onChange={loginInputHandler}
 						defaultValue={userName}
-						placeholder="הכנס שם משתמש"
+						placeholder="(כל שם אפשרי)"
 						name="userName"
 					/>
 				</label>
-				<label >
-					סיסמא
+				<label className="Login-login-label" >
+					<span className="Login-login-title">
+						סיסמא?
+					</span>
 					<input 
+						className="Login-login-input"
 						type="text" 
 						onChange={loginInputHandler}
 						defaultValue={userPassword}
-						placeholder="הכנס סיסמא"
+						placeholder="(מספר ID של MockAPI)"
 						name="userPassword"
 					/>
 				</label>
-				<div>
+				<div className="Login-btn-wrapper">
 					<button
+						className="Login-login-btn"
 						onClick={loginSubmitHandler}
 						value="loginSubmit"
 					>
-						התחבר
+						התחברות
 					</button>
 				</div>
 			</div>
-			<div>
+			<div className="Login-new-user-wrapper Login-flex-col">
 				<h2>
-					לא משתמש?
+					{!newUser ? "לא נרשמת?" : "הרשמה"}
 				</h2>
-				<button
-					onClick={() => setNewUser(true)}
-				>
-					הירשם!
-				</button>
+				{
+					!newUser &&
+					<div className="Login-btn-wrapper">
+						<button
+							className="Login-new-user-btn"
+							onClick={() => setNewUser(true)}
+						>
+							פתיחת פרופיל חדש
+						</button>
+					</div>
+				}
 			</div>
 			{newUser && <EditPage isEdit={false} callback={props.callback} />}
 		</div>
