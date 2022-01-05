@@ -10,6 +10,8 @@ import { RiMessengerLine } from "react-icons/ri";
 import { PawRanks } from "../../utils/PawRanks";
 import Api from "../../API/Mock.api";
 import "./Card.style.css";
+import LocalStorageAPI from "../../API/LocalStorageApi";
+import { useEffect } from "react/cjs/react.development";
 
 
 
@@ -17,18 +19,22 @@ export default function Card(props) {
 	
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [walker, setwalker] = useState(props.walker);
-	const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites") || "[]"));
 	let navigate = useNavigate();
 	
+	useEffect(() => {
+		if (LocalStorageAPI.findItem(props.walker.id)) {
+			setIsFavorite(true);
+		}
+	}, [])
 
 	function toggleFavorite() {
 		if (isFavorite) {
-			localStorage.removeItem(walker.id);
+			LocalStorageAPI.deleteItemsArray(walker.id);
 			setIsFavorite(false);
 			return;
 		}
 
-		localStorage.setItem(walker.id, walker);
+		LocalStorageAPI.setItemsArray(walker);
 		setIsFavorite(true);
 	}
 
@@ -39,7 +45,7 @@ export default function Card(props) {
 
 		try {
 			if (await Api.editItem(walker.id, walker)) {
-				props.callback();
+				props.userDidChanged();
 				setwalker (walker);
 			}
 		} catch (error) {
@@ -49,7 +55,7 @@ export default function Card(props) {
 
 	return (
 		<div className="ui centered card" >
-			<Link to={"/walker/" + walker.id} >
+			<Link to={"/walker/" + walker.id} className="Card-link">
 				<div className="image">
 					<img src={walker.avatar} alt={walker.name}/>
 				</div>

@@ -7,10 +7,12 @@ import NavBar from './components/NavBar/NavBar.component.jsx';
 import Login from './pages/login/Login.page.jsx';
 import PageNotFound from "./pages/notFound/NotFound.page.jsx";
 import { UserContext } from './components/UserContext/UserContext.js';
-import './App.css';
 import User from './pages/user/User.page.jsx';
 import Favorites from './pages/favorites/Favorites.page.jsx';
 import Logo from './components/logo/Logo.jsx';
+import './App.css';
+import LocalStorageAPI from './API/LocalStorageApi.js';
+
 
 function App() {
 
@@ -43,13 +45,6 @@ function App() {
     setisUpdateData(!isUpdateData);
   } 
 
-
-
-  console.log("user: ", user);
-  console.log({data});
-
-
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -59,27 +54,27 @@ function App() {
             <Routes>
               <Route 
                 path="/"
-                element={<Home data={data} callback={userDidChanged} />}
+                element={<Home data={data} userDidChanged={userDidChanged} />}
               />
               <Route 
                 path="/walker/:id"
-                element={<DogWalker data={data} callback={userDidChanged} />}
+                element={<DogWalker data={data} userDidChanged={userDidChanged} />}
               />
               <Route 
                 path="/login"
-                element={<Login data={data} callback={userDidChanged}/>}
+                element={<Login data={data} userDidChanged={userDidChanged}/>}
               />
               <Route 
                 path="/user"
-                element={<User callback={userDidChanged}/>}
+                element={<User userDidChanged={userDidChanged}/>}
               />
               <Route 
                 path="/favorites"
-                element={<Favorites callback={userDidChanged}/>}
+                element={<Favorites userDidChanged={userDidChanged}/>}
               />
               {/* <Route 
                 path="/search"
-                element={<Sea callback={userDidChanged}/>}
+                element={<Sea userDidChanged={userDidChanged}/>}
               /> */}
               <Route 
                 path="*"

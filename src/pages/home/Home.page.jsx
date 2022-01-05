@@ -24,7 +24,7 @@ export default function Home(props) {
 					key={walker.id} 
 					walker={walker} 
 					isProfile={false} 
-					callback={props.callback}
+					userDidChanged={props.userDidChanged}
 				/>
 			)
 		})

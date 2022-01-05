@@ -49,7 +49,7 @@ export default function User(props) {
 						<EditPage 
 							setIsShowForm={setIsShowForm}
 							isEdit={true} 
-							callback={props.callback}
+							userDidChanged={props.userDidChanged}
 						/>
 				}
 			</div>

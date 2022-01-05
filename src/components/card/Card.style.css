@@ -2,10 +2,15 @@
 
 .card {
 	width: 25%;
+	height: min-content;
 	font-weight: 500;
 	font-family: 'Assistant', sans-serif;
 }
 
+.Card-link {
+	width: 100%;
+	height: 100%;
+}
 
 .image img{
 	width: 100%;

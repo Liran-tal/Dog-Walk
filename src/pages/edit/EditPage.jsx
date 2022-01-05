@@ -45,7 +45,7 @@ export default function EditPage (props) {
 		if (event.target.value === "add") {
 			try {
 				await Api.addItem(walkerObject);
-				props.callback();
+				props.userDidChanged();
 				navigate("/login") ;
 			} 
 			catch (error) {
@@ -55,7 +55,7 @@ export default function EditPage (props) {
 
 		try {
 			await Api.editItem(user.id, walkerObject);	
-			props.callback();
+			props.userDidChanged();
 			setUser(walkerObject);
 			navigate("/") ;
 		} 
@@ -67,7 +67,7 @@ export default function EditPage (props) {
 	async function onDeleteHandler () {
 		try {
 			await Api.deleteItem(walkerObject.id);
-			props.callback();
+			props.userDidChanged();
 			navigate("/") ;
 		} 
 		catch (error) {
