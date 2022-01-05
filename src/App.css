@@ -1,5 +1,6 @@
 .App {
   width: 100vw;
+  max-width: 2000px;
   height: 100vh;
   text-align: center;
   font-size: 10px;
@@ -14,4 +15,10 @@
   justify-content: start;
   align-items: center;
   padding: 2%;
+}
+
+@media screen, (max-width: 760px) {
+  .App-main-wrapper {
+    flex-direction: column;
+  }
 }

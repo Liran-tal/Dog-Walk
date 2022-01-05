@@ -40,3 +40,14 @@
 	font-family: 'Pangolin', cursive;
 	font-size: 3.5rem;
 }
+
+
+@media screen, (max-width: 760px) {
+  .Logo-paw-wrapper {
+		font-size: 2rem;
+		display: flex;
+		width: 20%;
+		height: 80%;
+	}
+	
+}

@@ -35,7 +35,7 @@ export default function Home(props) {
 			style={{padding: "3%"}}
 		>
 			<div
-				className="ui four cards"
+				className={`ui  cards`}
 				>
 				{displayRandomUsers()}
 			</div>
