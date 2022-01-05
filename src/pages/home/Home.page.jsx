@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from "react";
 import Card from "../../components/card/Card";
 import Loader from "../../components/Loader/Loader";
+import "./Home.style.css"
 
 export default function Home(props) {
 
@@ -32,10 +33,10 @@ export default function Home(props) {
 
 	return (
 		<div
-			style={{padding: "3%"}}
+			className="Home-wrapper"
 		>
 			<div
-				className={`ui  cards`}
+				className={`ui cards`}
 				>
 				{displayRandomUsers()}
 			</div>

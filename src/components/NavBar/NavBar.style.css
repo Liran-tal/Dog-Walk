@@ -27,7 +27,7 @@
 
 @media screen and (max-width: 760px) {
 	.Navbar {
-		position: absolute;
+		position: fixed;
 		bottom: 0;
 		background-color: var(--mainBackground);
 	}

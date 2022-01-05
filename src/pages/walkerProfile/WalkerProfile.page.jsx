@@ -19,7 +19,7 @@ export default function DogWalker(props) {
 		})
 
 		return (
-			<div className='WalkerProfile-card-wrapper'>
+			<div className='WalkerProfile-card-wrapper mobile-wrapper'>
 				<Card key={walker.id} walker={walker} isProfile={true} />
 			</div>
 		)

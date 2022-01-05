@@ -1,11 +1,3 @@
 .WalkerProfile-card-wrapper{
 	width: 100%;
 }
-
-
-@media screen and (max-width: 760px) {
-	.WalkerProfile-card-wrapper{
-		position: absolute;
-		top: 22%;
-	}
-}

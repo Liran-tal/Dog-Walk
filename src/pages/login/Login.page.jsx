@@ -28,7 +28,7 @@ export default function Login(props) {
 	}
 
 	return (
-		<div className="Login-wrapper Login-flex-col">
+		<div className="Login-wrapper Login-flex-col mobile-wrapper">
 			<div className="Login-login-wrapper Login-flex-col">
 				<h2>
 					נרשמת?

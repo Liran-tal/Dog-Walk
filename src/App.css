@@ -2,6 +2,7 @@
   width: 100vw;
   max-width: 2000px;
   height: 100vh;
+  position: relative;
   text-align: center;
   font-size: 10px;
 }
@@ -10,15 +11,21 @@
 .App-main-wrapper {
   width: 100%;
   min-height: 80%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column-reverse;
   justify-content: start;
   align-items: center;
-  padding: 2%;
 }
 
 @media screen and (max-width: 760px) {
   .App-main-wrapper {
     flex-direction: column;
   }
+  
+  .mobile-wrapper {
+    height: 100%;
+    margin: 50% 0% 20%;
+  }
+  
 }

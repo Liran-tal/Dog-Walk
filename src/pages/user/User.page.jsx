@@ -22,7 +22,7 @@ export default function User(props) {
 	}
 
 	return (
-		<div className="Login-wrapper Login-flex-col" >
+		<div className="Login-wrapper Login-flex-col mobile-wrapper" >
 			<div className="Login-login-wrapper">
 				<h2>
 					{user && user.name}
