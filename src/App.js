@@ -11,7 +11,6 @@ import User from './pages/user/User.page.jsx';
 import Favorites from './pages/favorites/Favorites.page.jsx';
 import Logo from './components/logo/Logo.jsx';
 import './App.css';
-import LocalStorageAPI from './API/LocalStorageApi.js';
 
 
 function App() {
@@ -19,7 +18,6 @@ function App() {
   const [data, setData] = useState(null);
   const [user, setUser] = useState(null);
   const [isUpdateData, setisUpdateData] = useState(false);
-
 
   useEffect(() => {
 		async function getUsersData() {
