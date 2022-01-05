@@ -67,6 +67,7 @@ export default function EditPage (props) {
 	async function onDeleteHandler () {
 		try {
 			await Api.deleteItem(walkerObject.id);
+			setUser(null);
 			props.userDidChanged();
 			navigate("/") ;
 		} 
