@@ -23,3 +23,20 @@
 .Navbar-link-text {
 	color: var(--mainBackground);
 }
+
+@media screen and (max-width: 760px) {
+	.Logo-container {
+		justify-content: space-evenly;
+	}
+
+  .Logo-paw-wrapper {
+		font-size: 2rem;
+		width: 20%;
+		height: 80%;
+	}
+	
+	.Logo-text h1 {
+		font-size: 2.5rem;
+	}
+		
+}
