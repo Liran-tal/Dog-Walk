@@ -17,7 +17,7 @@ drawing data from a REST based API.
 
 ### Site map:
 
-![site map](./src/assets/images/Dog-Walk Front-end project.png)
+![alt text](./src/assets/images/Dog-Walk_Front-end_project.png "Site map")
 
 
 ### Dependencies:
