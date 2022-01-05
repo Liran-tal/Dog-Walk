@@ -1,0 +1,70 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css");
+
+.card {
+	width: 25%;
+	font-weight: 500;
+	font-family: 'Assistant', sans-serif;
+}
+
+.image img{
+	width: 100%;
+	height: 5%;
+}
+
+.content {
+	padding: 0 10%;
+	text-align: start;
+}
+
+.header,
+.description,
+.Card-contact-wrapper,
+.Card-likes-btns-wrapper,
+.Card-favorites-btn-wrapper { 
+	font-size: 1.5rem;
+	color: var(--icon);
+	margin: 6.5% 0;
+}
+
+.Card-descrition-title {
+	font-weight: bold;
+}
+
+.Card-descrition-text {
+	color: var(--mainBackground);
+}
+
+.Card-contact-wrapper,
+.Card-favorites-btn-wrapper, 
+.Card-likes-btns-wrapper{
+	display: flex;
+	align-items: center;
+}
+
+
+.Card-likes-btns-wrapper {
+	justify-content: start;
+}
+
+.Card-favorites-btn-wrapper{
+	justify-content: center;
+}
+
+
+.Card-likes-btn,
+.Card-favorites-btn {
+	width: 70%;
+	background-color: var(--mainBackground);
+	padding: 3%;
+	font-weight: 500;
+	border: 0;
+	border-radius: 5px;
+	font-family: 'Assistant', sans-serif;
+	color: #fff;
+	cursor: pointer;
+}
+
+
+.Card-likes-btn {
+	margin: 5% 10% 0;
+}
