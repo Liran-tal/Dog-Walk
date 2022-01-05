@@ -10,6 +10,7 @@ export default function Login(props) {
 	const [userPassword, setUserPassword] = useState("");
 	const [newUser, setNewUser] = useState(false);
 	const {user, setUser} = useContext(UserContext);
+	const [isShowForm, setIsShowForm] = useState(false);
 	let navigate = useNavigate();
 
 	function loginInputHandler({target}){
@@ -34,7 +35,7 @@ export default function Login(props) {
 				</h2>
 				<label className="Login-login-label">
 					<span className="Login-login-title">
-						מה שמך?
+						שם:
 					</span>
 					<input 
 						className="Login-login-input"
@@ -47,7 +48,7 @@ export default function Login(props) {
 				</label>
 				<label className="Login-login-label" >
 					<span className="Login-login-title">
-						סיסמא?
+						סיסמא:
 					</span>
 					<input 
 						className="Login-login-input"
@@ -83,8 +84,15 @@ export default function Login(props) {
 						</button>
 					</div>
 				}
+				{
+					newUser && 
+						<EditPage 
+							setIsShowForm={setNewUser}
+							isEdit={false} 
+							callback={props.callback} 
+						/>
+				}
 			</div>
-			{newUser && <EditPage isEdit={false} callback={props.callback} />}
 		</div>
 	)
 }

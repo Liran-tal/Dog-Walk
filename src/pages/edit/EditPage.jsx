@@ -25,6 +25,7 @@ export default function EditPage (props) {
 	const [walkerObject, setWalkerObject] = useState(defaultObject);
 	const [isEdit, setIsEdit] = useState(props.isEdit);
 	const {user, setUser} = useContext(UserContext);
+
 	let navigate = useNavigate();
 
 	useEffect (() => {
@@ -74,12 +75,17 @@ export default function EditPage (props) {
 		}
 	}
 
+	function onCancelHandler() {
+		props.setIsShowForm(false);
+	}
+
 	return(
 		<ItemEditor 
 			item={walkerObject}
 			onChange={onChangeHandler}
 			onSubmit={onSubmitHandler}
-			onDelete={onDeleteHandler}
+			onCancel={onCancelHandler}
+			onDelete={onDeleteHandler}	
 			isEdit={isEdit}
 		/>
 	);

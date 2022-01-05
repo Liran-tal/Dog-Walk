@@ -1,0 +1,19 @@
+.ItemEditor-wrapper {
+	width: 100%;
+	justify-content: flex-start;
+	font-family: 'Assistant', sans-serif;
+	margin: 5%;
+}
+
+.ItemEditor-btns-wrapper {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 5% 0;
+}
+
+.ItemEditor-delete-btn {
+	margin-top: 5%;
+	padding: 2%;
+	font-size: 1rem;
+}

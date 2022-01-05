@@ -1,30 +1,37 @@
 import React from "react";
-
+import "../../pages/login/Login.style.css";
+import "./ItemEditor.style.css"
 
 export default function itemEditor(props) {
 	
 
 	return (
-		<div>
+		<div className="ItemEditor-wrapper">
 			<form 
-				className="ui form" 
+				className="form" 
 			>
-				<label>
-					שם:
+				<label className="Login-login-label">
+					<span className="Login-login-title">
+						שם:
+					</span>
 					<div className="field">
 						<input 
+							className="Login-login-input"
 							type="text"
 							name="name" 
 							defaultValue={props.item.name} 
-							placeholder="מעיין ישראלי"
+							placeholder="פה עין"
 							onChange={props.onChange}
 						/>
 					</div>
 				</label>
-				<label>
-					מספר כלבים מירבי בטיול?:
+				<label className="Login-login-label">
+					<span className="Login-login-title">
+						מספר כלבים מירבי בטיול?:
+					</span>
 					<div className="field">
 						<input 
+							className="Login-login-input"
 							type="text" 
 							name="dogsNum"
 							defaultValue={props.item.dogsNum} 
@@ -33,10 +40,13 @@ export default function itemEditor(props) {
 						/>
 					</div>
 				</label>
-				<label>
-					גיל:
+				<label className="Login-login-label">
+					<span className="Login-login-title">
+						גיל:
+					</span>
 					<div className="field">
 						<input 
+							className="Login-login-input"
 							type="text" 
 							name="age"
 							defaultValue={props.item.age} 
@@ -45,10 +55,13 @@ export default function itemEditor(props) {
 						/>
 					</div>
 				</label>
-				<label>
-					אזור פעילות:
+				<label className="Login-login-label">
+					<span className="Login-login-title">
+						אזור פעילות:
+					</span>
 					<div className="field">
 						<input 
+							className="Login-login-input"
 							type="text" 
 							name="location"
 							defaultValue={props.item.location} 
@@ -57,10 +70,13 @@ export default function itemEditor(props) {
 						/>
 					</div>
 				</label>
-				<label>
-					טלפון:
+				<label className="Login-login-label">
+					<span className="Login-login-title">
+						טלפון:
+					</span>
 					<div className="field">
-						<input 
+						<input
+							className="Login-login-input" 
 							type="text" 
 							name="phone"
 							defaultValue={props.item.phone} 
@@ -69,10 +85,13 @@ export default function itemEditor(props) {
 						/>
 					</div>
 				</label>
-				<label>
-					תמונת פרופיל
+				<label className="Login-login-label">
+					<span className="Login-login-title">
+						תמונת פרופיל
+					</span>
 					<div className="field">
 						<input 
+							className="Login-login-input"
 							type="text" 
 							name="avatar"
 							defaultValue={props.item.avatar} 
@@ -82,21 +101,33 @@ export default function itemEditor(props) {
 					</div>
 				</label>
 			</form>
-			
-			<button 
-				className="ui button" 
-				onClick={props.onSubmit}
-				value={props.isEdit ? "edit" : "add"}
-			>
-				שליחה
-			</button>
-			<div>
-				<button
-					onClick={props.onDelete}
-				>
-					מחיקת החשבון
+			<div className="ItemEditor-btns-wrapper">
+				<button 
+					className="Login-login-btn" 
+					onClick={props.onSubmit}
+					value={props.isEdit ? "edit" : "add"}
+					>
+					שליחה
+				</button>
+				<button 
+					className="Login-login-btn" 
+					onClick={props.onCancel}
+					value={props.isEdit ? "edit" : "add"}
+					>
+					ביטול
 				</button>
 			</div>
+			{
+				props.isEdit &&
+				<div>
+					<button
+						className="Login-login-btn ItemEditor-delete-btn" 
+						onClick={props.onDelete}
+						>
+						מחיקת החשבון
+					</button>
+				</div>
+			}
 		</div>
 	)
 }

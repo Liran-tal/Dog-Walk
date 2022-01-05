@@ -69,13 +69,13 @@ export default function Card(props) {
 							גיל: {walker.age}
 						</div>
 					}
-					<div className={"description"}>
+					<div className="description">
 						<span className="Card-descrition-title">דירוג: </span>
 						<span className="Card-descrition-text">{PawRanks[walker.rank % 4]}</span> 
 					</div>
 					{ 
 						props.isProfile &&
-						<div  >
+						<div className="description" >
 							<div className="Card-contact-wrapper">
 								צור קשר: <AiOutlineWhatsApp /> <RiMessengerLine /> <AiOutlinePhone />
 							</div>

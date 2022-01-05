@@ -5,7 +5,7 @@ import { UserContext } from "../../components/UserContext/UserContext";
 
 export default function User(props) {
 	const {user, setUser} = useContext(UserContext);
-	const [isEdit, setIsEdit] = useState(false);
+	const [isShowForm, setIsShowForm] = useState(false);
 	let navigate = useNavigate();
 
 	if (!user) {
@@ -17,7 +17,7 @@ export default function User(props) {
 	}
 
 	function editUser() {
-		setIsEdit(true);
+		setIsShowForm(true);
 	}
 
 	return (
@@ -26,19 +26,20 @@ export default function User(props) {
 				{user && user.name}
 			</h3>
 			<button
-				onClick={() => setIsEdit(true)}
+				onClick={() => setIsShowForm(true)}
 			>
 				עריכת פרופיל
 			</button>
 			{
-				isEdit &&
+				isShowForm &&
 					<EditPage 
-						isEdit={isEdit} 
+						setIsShowForm={setIsShowForm}
+						isEdit={true} 
 						callback={props.callback}
 					/>
 			}
 			{
-				!isEdit &&
+				!isShowForm &&
 					<button
 						onClick={logOut}
 					>
