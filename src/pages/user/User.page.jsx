@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import EditPage from "../edit/EditPage";
 import { UserContext } from "../../components/UserContext/UserContext";
+import "../login/Login.style.css"
 
 export default function User(props) {
 	const {user, setUser} = useContext(UserContext);
@@ -21,31 +22,37 @@ export default function User(props) {
 	}
 
 	return (
-		<div>
-			<h3>
-				{user && user.name}
-			</h3>
-			<button
-				onClick={() => setIsShowForm(true)}
-			>
-				עריכת פרופיל
-			</button>
-			{
-				isShowForm &&
-					<EditPage 
-						setIsShowForm={setIsShowForm}
-						isEdit={true} 
-						callback={props.callback}
-					/>
-			}
-			{
-				!isShowForm &&
+		<div className="Login-wrapper Login-flex-col" >
+			<div className="Login-login-wrapper">
+				<h2>
+					{user && user.name}
+				</h2>
+				<div className="Login-btn-wrapper">
 					<button
-						onClick={logOut}
+						className="Login-login-btn"
+						onClick={() => setIsShowForm(true)}
 					>
-						התנתקות
+						עריכת פרופיל
 					</button>
-			}	
+					{
+						!isShowForm &&
+						<button
+							className="Login-login-btn"
+							onClick={logOut}
+						>
+								התנתקות
+							</button>
+					}	
+				</div>
+				{
+					isShowForm &&
+						<EditPage 
+							setIsShowForm={setIsShowForm}
+							isEdit={true} 
+							callback={props.callback}
+						/>
+				}
+			</div>
 		</div>
 	)
 }

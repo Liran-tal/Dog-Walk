@@ -96,15 +96,18 @@ export default function Card(props) {
 						</div>
 					}
 				</div>
-				<div className="Card-favorites-btn-wrapper">
-					<button
-						className="Card-favorites-btn" 
-						onClick={toggleFavorite}
-						>
-						{isFavorite ? <AiFillStar /> : <AiOutlineStar />}
-						הוספה למועדפים
-					</button>
-				</div>
+				{
+					props.isProfile &&
+					<div className="Card-favorites-btn-wrapper">
+						<button
+							className="Card-favorites-btn" 
+							onClick={toggleFavorite}
+							>
+							{isFavorite ? <AiFillStar /> : <AiOutlineStar />}
+							הוספה למועדפים
+						</button>
+					</div>
+				}					
 			</Link>
 			{
 				props.isProfile &&
