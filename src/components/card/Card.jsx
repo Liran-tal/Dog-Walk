@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineStar } from "react-icons/ai";
 import { AiFillStar } from "react-icons/ai";
@@ -11,7 +11,6 @@ import { PawRanks } from "../../utils/PawRanks";
 import Api from "../../API/Mock.api";
 import "./Card.style.css";
 import LocalStorageAPI from "../../API/LocalStorageApi";
-import { useEffect } from "react/cjs/react.development";
 
 
 
