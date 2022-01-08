@@ -27,7 +27,7 @@ export default function Search(props) {
 	return (
 		<div className="Search-wrapper Search-flex">
 			<div className="Search-filter-sort-wrapper Search-flex">
-				<div className="Search-filter">
+				<div className="Search-filter Search-flex">
 					<div className="Search-filter-header">
 						חיפוש לפי:
 					</div>
