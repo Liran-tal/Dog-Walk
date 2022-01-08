@@ -2,6 +2,7 @@ import React, {useState, useEffect, useMemo} from 'react';
 import { BrowserRouter, Routes, Route, Links } from 'react-router-dom';
 import Api from './API/Mock.api.js';
 import Home from './pages/home/Home.page.jsx';
+import Search from './pages/Search/Search.page.jsx';
 import DogWalker from './pages/walkerProfile/WalkerProfile.page.jsx';
 import NavBar from './components/NavBar/NavBar.component.jsx';
 import Login from './pages/login/Login.page.jsx';
@@ -70,10 +71,10 @@ function App() {
                 path="/favorites"
                 element={<Favorites userDidChanged={userDidChanged}/>}
               />
-              {/* <Route 
+              <Route 
                 path="/search"
-                element={<Sea userDidChanged={userDidChanged}/>}
-              /> */}
+                element={<Search data={data} userDidChanged={userDidChanged}/>}
+              />
               <Route 
                 path="*"
                 element={<PageNotFound />}

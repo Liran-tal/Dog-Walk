@@ -1,0 +1,20 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css");
+
+.Search-flex {
+	display: flex;
+
+}
+
+.Search-wrapper {
+	width: 100%;
+	padding: 3%;
+	font-family: "Assitant", sans-serif;
+}
+
+.Search-filter-sort-wrapper {
+
+}
+
+.Search-filter {
+
+}
