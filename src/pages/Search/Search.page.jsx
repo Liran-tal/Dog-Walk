@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Dropdown } from 'semantic-ui-react'
 import Home from "../home/Home.page";
 import "./Search.style.css";
 
@@ -10,34 +11,66 @@ export default function Search(props) {
 	const [filteredData, setfilteredData] = useState([]);
 
 	function displayLocationOptions () {
+		if (!props.data) {
+			return [{text: "אזור"}];
+		}
+		
 		const uniqeLocations = [];
+		const locationSelectOptions = [];
 		props.data.forEach((walker) => {
-			if (!uniqeLocations.includes(walker.location)) {
-				uniqeLocations.push(walker.location);
+			if (!uniqeLocations.includes(walker.location) && walker.location !== "") {
+				uniqeLocations.push(
+					walker.location
+				);
+				locationSelectOptions.push(
+					{
+						key: walker.id,
+						value: walker.location,
+						text: walker.location,
+					}
+				)
 			}
 		})
 
-		return (
-			uniqeLocations.map((location) => {
-				return <option value={location}>{location}</option>
-			})
-		)
+		return locationSelectOptions;
 	}
 
+	function filterSubmitHandler() {
+		console.log(locationToSearch);
+		// const tempArray	=	props.data.filter((walker) => {
+		// 	if () {
+				
+		// 	}
+		// })
+	}
+	
 	return (
 		<div className="Search-wrapper Search-flex">
 			<div className="Search-filter-sort-wrapper Search-flex">
 				<div className="Search-filter Search-flex">
-					<div className="Search-filter-header">
+					<div className="Search-filter-title">
 						חיפוש לפי:
 					</div>
-					{/* <label > */}
-						<select multiple="" className="ui fluid search dropdown">
-							<option selected >אזור</option>
-							{props.data && displayLocationOptions()}
-						</select>
-					{/* </label> */}
-					
+					<label htmlFor={"location"} className="Search-flex Search-dropdown-label">
+						אזור		
+						<Dropdown
+							name="location"
+							className="Search-filter-location Search-flex"	
+							placeholder="אזור"
+							fluid
+							multiple
+							selection
+							options={displayLocationOptions()}
+							onChange={(event, data) => setLocationToSearch(data.value)}
+						/>
+					</label>
+					<button
+						className=""
+						onClick={filterSubmitHandler}
+						value="filter"
+					>
+						חיפוש
+					</button>
 				</div>
 			</div>
 			<Home 

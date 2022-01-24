@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useMemo} from 'react';
-import { BrowserRouter, Routes, Route, Links } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Api from './API/Mock.api.js';
 import Home from './pages/home/Home.page.jsx';
 import Search from './pages/Search/Search.page.jsx';
@@ -25,6 +25,7 @@ function App() {
 			try {
 				const data = await Api.getData();
 				if (data) {
+          console.log("App.js:28 \n", data);
 					setData(data);
 				}
 				else {

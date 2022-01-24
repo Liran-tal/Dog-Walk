@@ -60,13 +60,14 @@
 
 .Login-login-btn,
 .Login-new-user-btn {
+	margin: 0 auto;
+	padding: 2%;
 	border: 0;
 	border-radius: 5px;
 	background-color: var(--mainBackground);
 	color: #fff;
-	padding: 2%;
 	text-align: center;
-	margin: 0 auto;
+	cursor: pointer;
 }
 
 @media screen and (max-width: 760px) {
@@ -82,5 +83,6 @@
 
 	.Login-new-user-btn {
 		padding: 4%;
+		cursor: pointer;
 	}
 }

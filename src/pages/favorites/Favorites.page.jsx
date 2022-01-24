@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import LocalStorageAPI from '../../API/LocalStorageApi.js';
 import Home from "../home/Home.page.jsx";
