@@ -10,7 +10,6 @@ export default function Login(props) {
 	const [userPassword, setUserPassword] = useState("");
 	const [newUser, setNewUser] = useState(false);
 	const {user, setUser} = useContext(UserContext);
-	const [isShowForm, setIsShowForm] = useState(false);
 	let navigate = useNavigate();
 
 	function loginInputHandler({target}){

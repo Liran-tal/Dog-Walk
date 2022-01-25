@@ -1,12 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../components/UserContext/UserContext";
 import LocalStorageAPI from '../../API/LocalStorageApi.js';
 import Home from "../home/Home.page.jsx";
 import "../login/Login.style.css"
 
 export default function Favorites(props) {
-	
-	const favorites = LocalStorageAPI.getItemsArray();
+	const {user} = useContext(UserContext);
+	let favorites;
+
+	if (user) {
+		favorites = LocalStorageAPI.getItemsArray();
+	}
+	else{
+		favorites = [];
+	}
 
 	return (
 		favorites.length < 1 
