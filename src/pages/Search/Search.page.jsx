@@ -56,7 +56,7 @@ export default function Search(props) {
 						/>
 					</label>
 					<button
-						className=""
+						className="Login-login-btn Search-filter-btn"
 						onClick={filterSubmitHandler}
 						value="filter"
 					>
