@@ -57,3 +57,14 @@
 .ui.selection.dropdown {
 	border-color: var(--mainBackground);
 }
+
+
+@media screen and (max-width: 760px) {
+	.Search-wrapper {
+		margin-top: 50%;
+	}
+
+	.Search-cards-wrapper{
+		margin-top: -40%;
+	}
+}

@@ -3,12 +3,9 @@ import { Dropdown } from 'semantic-ui-react'
 import Home from "../home/Home.page";
 import "./Search.style.css";
 
-
-
-export default function Search(props) {
-	
-	const [locationToSearch, setLocationToSearch] = useState("");
-	const [filteredData, setfilteredData] = useState([]);
+export default function Search(props) {	
+	const [locationToSearch, setLocationToSearch] = useState([]);
+	const [walkersTodisplay, setWalkersTodisplay] = useState(null);
 
 	function displayLocationOptions () {
 		if (!props.data) {
@@ -19,16 +16,12 @@ export default function Search(props) {
 		const locationSelectOptions = [];
 		props.data.forEach((walker) => {
 			if (!uniqeLocations.includes(walker.location) && walker.location !== "") {
-				uniqeLocations.push(
-					walker.location
-				);
-				locationSelectOptions.push(
-					{
-						key: walker.id,
-						value: walker.location,
-						text: walker.location,
-					}
-				)
+				uniqeLocations.push(walker.location);
+				locationSelectOptions.push({
+					key: walker.id,
+					value: walker.location,
+					text: walker.location,
+				})
 			}
 		})
 
@@ -36,16 +29,14 @@ export default function Search(props) {
 	}
 
 	function filterSubmitHandler() {
-		console.log(locationToSearch);
-		// const tempArray	=	props.data.filter((walker) => {
-		// 	if () {
-				
-		// 	}
-		// })
+		const filteredWalkers	=	props.data.filter((walker) => {
+				return locationToSearch.includes(walker.location);
+		})
+		setWalkersTodisplay(filteredWalkers);
 	}
 	
 	return (
-		<div className="Search-wrapper Search-flex">
+		<div className="Search-wrapper">
 			<div className="Search-filter-sort-wrapper Search-flex">
 				<div className="Search-filter Search-flex">
 					<div className="Search-filter-title">
@@ -73,10 +64,12 @@ export default function Search(props) {
 					</button>
 				</div>
 			</div>
-			<Home 
-				data={filteredData} 
-				userDidChanged={props.userDidChanged} 
-			/>
+			<div className="Search-cards-wrapper">
+				{walkersTodisplay && <Home 
+					data={walkersTodisplay} 
+					userDidChanged={props.userDidChanged} 
+				/>}		
+			</div>
 		</div>
 	)
 }

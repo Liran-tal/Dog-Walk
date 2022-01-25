@@ -1,15 +1,14 @@
-import React, {useState, useEffect } from "react";
+import React from "react";
 import Card from "../../components/card/Card";
 import Loader from "../../components/Loader/Loader";
 import "./Home.style.css"
 
 export default function Home(props) {
 
-	const displayRandomUsers = () => {
+	const displayUsers = () => {
 		if (!props.data) {
 			return <Loader />
 		}
-
 		return props.data.map((walker) => {
 			return (
 				<Card 
@@ -29,7 +28,7 @@ export default function Home(props) {
 			<div
 				className={`ui cards`}
 				>
-				{displayRandomUsers()}
+				{displayUsers()}
 			</div>
 		</div>
 	)

@@ -15,7 +15,7 @@ import LocalStorageAPI from "../../API/LocalStorageApi";
 
 
 export default function Card(props) {
-	
+	console.log(props);	
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [walker, setwalker] = useState(props.walker);
 	let navigate = useNavigate();
