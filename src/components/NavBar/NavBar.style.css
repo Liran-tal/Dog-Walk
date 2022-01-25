@@ -8,7 +8,7 @@
 .Navbar {
 	width: 100%;
 	padding: 2.5% 5%;
-	font-size: clamp(1rem, 7vw, 3rem);
+	font-size: clamp(0.5rem, 7vw, 3rem);
 	font-family: 'Assistant', sans-serif;
 }
 
@@ -39,5 +39,6 @@
 
 	.Navbar-link-text {
 		color: #fff;
+		margin-top: 3px;
 	}
 }
